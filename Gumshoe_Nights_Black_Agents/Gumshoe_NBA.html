@@ -1,5 +1,4 @@
 <div class="sheet-toc">
-    <img class="sheet-eldersign" src="https://ramblurr.github.io/roll20-character-sheets/img/eldersign.svg"/>
     <div class='sheet-flx-row sheet-vital'>
         <div class='sheet-flx-col-xs sheet-names'>
             <table>
@@ -8,12 +7,16 @@
                     <td><input type="text" name="attr_agents_name"></td>
                 </tr>
                 <tr>
-                    <td>Occupation </td>
+                    <td>Background </td>
                     <td><input type="text" name="attr_Occupation"></td>
                 </tr>
                 <tr>
                     <td>Drive</td>
                     <td><input type="text" name="attr_Drive"></td>
+                </tr>               
+                <tr>
+                    <td>M.O.S.</td>
+                    <td><input type="text" name="attr_MOS"></td>
                 </tr>
                 <tr>
                     <td>Concept</td>
@@ -23,12 +26,58 @@
                 </tr>
             </table>
         </div>
-        <div class='sheet-flx-col-xs'>
-            <img class="sheet-logo" src="https://ramblurr.github.io/roll20-character-sheets/img/toc-logo.png"/>
-        </div>
     </div>
 
     <div class='sheet-flx-row'>
+        
+            <div class="sheet-flx-col-xs">
+                <div class="sheet-section">
+                    <h4 class="sheet-section-head">Sources Of Stabilty</h4>
+                    <table>
+                        <tr>
+                            <td>Symbol</td><td><input type="text" name="attr_Symbol" ></td>    
+                        </tr>
+                        <tr>
+                            <td>Solace</td><td><input type="text" name="attr_Solace" ></td>    
+                        </tr>
+                        <tr>
+                            <td>Safety</td><td><input type="text" name="attr_Safety" ></td>    
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <div class="sheet-flx-col-xs">
+                <div class="sheet-section">
+                    <h4 class="sheet-section-head">Stability</h4>
+                    <table>
+                        <tr>
+                            <td>
+                                <input class="sheet-secondary-attr-input" placeholder="lost" type="number" min="0" name="attr_stability_spent" value="0">
+                            </td>
+                            <td>/</td>
+                            <td>
+                                <input class="sheet-secondary-attr-input" placeholder="pool" type="number" min="0" name="attr_stability_pool" disabled="true" value="@{stability_rating}-@{stability_spent}">
+                            </td>
+                            <td>/</td>
+                            <td>
+                                <input class="sheet-secondary-attr-input" placeholder="rating" type="number" min="0" name="attr_stability_rating">
+                            </td>
+                            <td>
+                                <button type='roll' value='!roll stability ?{Points to spend|0}' name='roll_stab_check'></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <input type="checkbox" value="1" name="attr_shaken"> Shaken
+                            </td>
+                            <td colspan="4">
+                                <input type="checkbox" value="1" name="attr_shattered"> Shattered
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         <div class="sheet-flx-col-xs">
             <div class="sheet-section">
                 <h4 class="sheet-section-head">Health</h4>
@@ -66,64 +115,9 @@
                     </table>
                 </div>
             </div>
-            <div class="sheet-flx-col-xs">
-                <div class="sheet-section">
-                    <h4 class="sheet-section-head">Occupational Benefits</h4>
-                    <textarea name="attr_occupational_benefits"></textarea>
-                </div>
-
-            </div>
-            <div class="sheet-flx-col-xs">
-                <div class="sheet-section">
-                    <h4 class="sheet-section-head">Stability</h4>
-                    <table>
-                        <tr>
-                            <td>
-                                <input class="sheet-secondary-attr-input" placeholder="lost" type="number" min="0" name="attr_stability_spent" value="0">
-                            </td>
-                            <td>/</td>
-                            <td>
-                                <input class="sheet-secondary-attr-input" placeholder="pool" type="number" min="0" name="attr_stability_pool" disabled="true" value="@{stability_rating}-@{stability_spent}">
-                            </td>
-                            <td>/</td>
-                            <td>
-                                <input class="sheet-secondary-attr-input" placeholder="rating" type="number" min="0" name="attr_stability_rating">
-                            </td>
-                            <td>
-                                <button type='roll' value='!roll stability ?{Points to spend|0}' name='roll_stab_check'></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="4">
-                                <input type="checkbox" value="1" name="attr_shaken"> Shaken
-                            </td>
-                            <td colspan="4">
-                                <input type="checkbox" value="1" name="attr_mindblasted"> Mind Blasted
-                            </td>
-                        </tr>
-                    </table>
-                    <h4 class="sheet-section-head">Sanity</h4>
-                    <table>
-                        <tr>
-                            <td>
-                                <input class="sheet-secondary-attr-input" placeholder="lost" type="number" min="0" name="attr_sanity_spent" value="0">
-                            </td>
-                            <td>/</td>
-                            <td>
-                                <input class="sheet-secondary-attr-input" placeholder="pool" type="number" min="0" name="attr_sanity_pool" disabled="true" value="@{sanity_rating}-@{sanity_spent}">
-                            </td>
-                            <td>/</td>
-                            <td>
-                                <input class="sheet-secondary-attr-input" placeholder="rating" type="number" min="0" name="attr_sanity_rating">
-                            </td>
-                            <td>
-                                <button type='roll' value='!roll sanity ?{Points to spend|0}' name='roll_san_check'></button>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            
         </div>
+        
         <div class='sheet-section sheet-abilities'>
             <h4 class="sheet-section-head">Investigative Abilities</h4>
             <div class="sheet-flx-row">
@@ -136,13 +130,6 @@
                             <td><input class="sheet-skill-input" type="number" name="attr_accounting_pool" value="@{accounting_rating}-@{accounting_spent}" disabled="true"/></td>
                             <td><input class="sheet-skill-input" type="number" name="attr_accounting_rating" /></td>
                             <td><button type='roll' value='!roll accounting ?{Points to spend|0}' name='roll_san_check' ></button></td>
-                        </tr>
-                        <tr>
-                            <td class="sheet-skill-label">Anthropology</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_anthropology_spent" value="0" /></td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_anthropology_pool" value="@{anthropology_rating}-@{anthropology_spent}" disabled="true"/></td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_anthropology_rating" /></td>
-                            <td><button type='roll' value='!roll anthropology ?{Points to spend|0}' name='roll_san_check' ></button></td>
                         </tr>
                         <tr>
                             <td class="sheet-skill-label">Archaeology</td>
@@ -166,32 +153,18 @@
                             <td><button type='roll' value='!roll art_history ?{Points to spend|0}' name='roll_art_history' ></button></td>
                         </tr>
                         <tr>
-                            <td class="sheet-skill-label">Biology</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_biology_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_biology_pool" value="@{biology_rating}-@{biology_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_biology_rating" /></td>
-                            <td><button type='roll' value='!roll biology ?{Points to spend|0}' name='roll_biology' ></button></td>
+                            <td class="sheet-skill-label">Criminology</td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_criminology_spent" value="0" /></td> 
+                            <td><input class="sheet-skill-input" type="number" name="attr_criminology_pool" value="@{criminology_rating}-@{criminology_spent}" disabled="true"/> </td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_criminology_rating" /></td>
+                            <td><button type='roll' value='!roll criminology ?{Points to spend|0}' name='roll_criminology' ></button></td>
                         </tr>
                         <tr>
-                            <td class="sheet-skill-label">Cryptography</td>
+                            <td class="sheet-skill-label">Diagnosis</td>
                             <td><input class="sheet-skill-input" type="number" name="attr_diagnosis_spent" value="0" /></td> 
                             <td><input class="sheet-skill-input" type="number" name="attr_diagnosis_pool" value="@{diagnosis_rating}-@{diagnosis_spent}" disabled="true"/> </td>
                             <td><input class="sheet-skill-input" type="number" name="attr_diagnosis_rating" /></td>
-                            <td><button type='roll' value='!roll cryptography ?{Points to spend|0}' name='roll_cryptography' ></button></td>
-                        </tr>
-                        <tr>
-                            <td class="sheet-skill-label">Cthulhu Mythos</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_cthulhu_mythos_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_cthulhu_mythos_pool" value="@{cthulhu_mythos_rating}-@{cthulhu_mythos_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_cthulhu_mythos_rating" /></td>
-                            <td><button type='roll' value='!roll cthulhu_mythos ?{Points to spend|0}' name='roll_cthulhu_mythos' ></button></td>
-                        </tr>
-                        <tr>
-                            <td class="sheet-skill-label">Geology</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_geology_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_geology_pool" value="@{geology_rating}-@{geology_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_geology_rating" /></td>
-                            <td><button type='roll' value='!roll geology ?{Points to spend|0}' name='roll_geology' ></button></td>
+                            <td><button type='roll' value='!roll diagnosis ?{Points to spend|0}' name='roll_diagnosis' ></button></td>
                         </tr>
                         <tr>
                             <td class="sheet-skill-label">History</td>
@@ -199,6 +172,13 @@
                             <td><input class="sheet-skill-input" type="number" name="attr_history_pool" value="@{history_rating}-@{history_spent}" disabled="true"/> </td>
                             <td><input class="sheet-skill-input" type="number" name="attr_history_rating" /></td>
                             <td><button type='roll' value='!roll history ?{Points to spend|0}' name='roll_history' ></button></td>
+                        </tr>
+                        <tr>
+                            <td class="sheet-skill-label">Human Terrain</td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_human_terrain_spent" value="0" /></td> 
+                            <td><input class="sheet-skill-input" type="number" name="attr_human_terrain_pool" value="@{human_terrain_rating}-@{human_terrain_spent}" disabled="true"/> </td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_human_terrain_rating" /></td>
+                            <td><button type='roll' value='!roll human_terrain ?{Points to spend|0}' name='roll_human_terrain' ></button></td>
                         </tr>
                         <tr>
                             <td class="sheet-skill-label">Languages</td>
@@ -214,59 +194,57 @@
                             <td><input class="sheet-skill-input" type="number" name="attr_law_rating" /></td>
                             <td><button type='roll' value='!roll law ?{Points to spend|0}' name='roll_law' ></button></td>
                         </tr>
-                        <tr>
-                            <td class="sheet-skill-label">Library Use</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_library_use_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_library_use_pool" value="@{library_use_rating}-@{library_use_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_library_use_rating" /></td>
-                            <td><button type='roll' value='!roll library_use ?{Points to spend|0}' name='roll_library_use' ></button></td>
+                         <tr>
+                            <td class="sheet-skill-label">Military Science</td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_military_science_spent" value="0" /></td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_military_science_pool" value="@{military_science_rating}-@{military_science_spent}" disabled="true"/></td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_military_science_rating" /></td>
+                            <td><button type='roll' value='!roll military_science ?{Points to spend|0}' name='roll_san_check' ></button></td>
                         </tr>
                         <tr>
-                            <td class="sheet-skill-label">Medicine</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_medicine_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_medicine_pool" value="@{medicine_rating}-@{medicine_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_medicine_rating" /></td>
-                            <td><button type='roll' value='!roll medicine ?{Points to spend|0}' name='roll_medicine' ></button></td>
-                        </tr>
-                        <tr>
-                            <td class="sheet-skill-label">Occult</td>
+                            <td class="sheet-skill-label">Occult Studies</td>
                             <td><input class="sheet-skill-input" type="number" name="attr_occult_spent" value="0" /></td> 
                             <td><input class="sheet-skill-input" type="number" name="attr_occult_pool" value="@{occult_rating}-@{occult_spent}" disabled="true"/> </td>
                             <td><input class="sheet-skill-input" type="number" name="attr_occult_rating" /></td>
                             <td><button type='roll' value='!roll occult ?{Points to spend|0}' name='roll_occult' ></button></td>
                         </tr>
                         <tr>
-                            <td class="sheet-skill-label">Physics</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_physics_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_physics_pool" value="@{physics_rating}-@{physics_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_physics_rating" /></td>
-                            <td><button type='roll' value='!roll physics ?{Points to spend|0}' name='roll_physics' ></button></td>
+                            <td class="sheet-skill-label">Research</td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_research_spent" value="0" /></td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_research_pool" value="@{research_rating}-@{research_spent}" disabled="true"/></td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_research_rating" /></td>
+                            <td><button type='roll' value='!roll research ?{Points to spend|0}' name='roll_san_check' ></button></td>
                         </tr>
                         <tr>
-                            <td class="sheet-skill-label">Theology</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_theology_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_theology_pool" value="@{theology_rating}-@{theology_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_theology_rating" /></td>
-                            <td><button type='roll' value='!roll theology ?{Points to spend|0}' name='roll_theology' ></button></td>
+                            <td class="sheet-skill-label">Vampirology</td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_vampirology_spent" value="0" /></td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_vampirology_pool" value="@{vampirology_rating}-@{vampirology_spent}" disabled="true"/></td>
+                            <td><input class="sheet-skill-input" type="number" name="attr_vampirology_rating" /></td>
+                            <td><button type='roll' value='!roll vampirology ?{Points to spend|0}' name='roll_san_check' ></button></td>
                         </tr>
                     </table>
+                    <div class="sheet-flx-table">
+                        <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-top sheet-flx-brd-bottom">
+                            <div class="sheet-flx-col-xs-12 sheet-flx-hdr sheet-flx-brd">Languages</div>
+                        </div>
+                        <fieldset class="repeating_languages">
+                            <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-bottom sheet-flx-data">
+                                <div class="sheet-flx-col-xs-12">
+                                    <input type="text" name="attr_name" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
                 </div>
                 <div class="sheet-flx-col-xs">
                     <table>
                         <thead><tr><th colspan="5">Interpersonal <span class="sheet-small">(Spent/Current/Max)</span></th></tr></thead>
-                        <tr>
-                            <td class="sheet-skill-label">Assess Honesty</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_assess_honesty_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_assess_honesty_pool" value="@{assess_honesty_rating}-@{assess_honesty_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_assess_honesty_rating" /></td>
-                            <td><button type='roll' value='!roll assess_honesty ?{Points to spend|0}' name='roll_assess_honesty' ></button></td>
-                        </tr>
-                        <tr>
-                            <td class="sheet-skill-label">Bargain</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_bargain_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_bargain_pool" value="@{bargain_rating}-@{bargain_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_bargain_rating" /></td>
-                            <td><button type='roll' value='!roll bargain ?{Points to spend|0}' name='roll_bargain' ></button></td>
+     					<tr>
+                            <td class="sheet-bs_detector-label">BS Detector</td>
+                            <td><input class="sheet-bs_detector-input" type="number" name="attr_bs_detector_spent" value="0" /></td> 
+                            <td><input class="sheet-bs_detector-input" type="number" name="attr_bs_detector_pool" value="@{bs_detector_rating}-@{bs_detector_spent}" disabled="true"/> </td>
+                            <td><input class="sheet-bs_detector-input" type="number" name="attr_bs_detector_rating" /></td>
+                            <td><button type='roll' value='!roll bs_detector ?{Points to spend|0}' name='roll_bs_detector' ></button></td>
                         </tr>
                         <tr>
                             <td class="sheet-skill-label">Bureaucracy</td>
@@ -283,19 +261,26 @@
                             <td><button type='roll' value='!roll cop_talk ?{Points to spend|0}' name='roll_cop_talk' ></button></td>
                         </tr>
                         <tr>
-                            <td class="sheet-skill-label">Credit Rating</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_credit_rating_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_credit_rating_pool" value="@{credit_rating_rating}-@{credit_rating_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_credit_rating_rating" /></td>
-                            <td><button type='roll' value='!roll credit_rating ?{Points to spend|0}' name='roll_credit_rating' ></button></td>
-                        </tr>
-                        <tr>
                             <td class="sheet-skill-label">Flattery</td>
                             <td><input class="sheet-skill-input" type="number" name="attr_flattery_spent" value="0" /></td> 
                             <td><input class="sheet-skill-input" type="number" name="attr_flattery_pool" value="@{flattery_rating}-@{flattery_spent}" disabled="true"/> </td>
                             <td><input class="sheet-skill-input" type="number" name="attr_flattery_rating" /></td>
                             <td><button type='roll' value='!roll flattery ?{Points to spend|0}' name='roll_flattery' ></button></td>
                         </tr>
+    					<tr>
+                            <td class="sheet-flirting-label">Flirting</td>
+                            <td><input class="sheet-flirting-input" type="number" name="attr_flirting_spent" value="0" /></td> 
+                            <td><input class="sheet-flirting-input" type="number" name="attr_flirting_pool" value="@{flirting_rating}-@{flirting_spent}" disabled="true"/> </td>
+                            <td><input class="sheet-flirting-input" type="number" name="attr_flirting_rating" /></td>
+                            <td><button type='roll' value='!roll flirting ?{Points to spend|0}' name='roll_flirting' ></button></td>
+                        </tr>						
+						<tr>
+                            <td class="sheet-high_society-label">High Society</td>
+                            <td><input class="sheet-high_society-input" type="number" name="attr_high_society_spent" value="0" /></td> 
+                            <td><input class="sheet-high_society-input" type="number" name="attr_high_society_pool" value="@{high_society_rating}-@{high_society_spent}" disabled="true"/> </td>
+                            <td><input class="sheet-high_society-input" type="number" name="attr_high_society_rating" /></td>
+                            <td><button type='roll' value='!roll high_society ?{Points to spend|0}' name='roll_high_society' ></button></td>
+                        </tr>                        
                         <tr>
                             <td class="sheet-skill-label">Interrogation</td>
                             <td><input class="sheet-skill-input" type="number" name="attr_interrorgation_spent" value="0" /></td> 
@@ -310,18 +295,18 @@
                             <td><input class="sheet-skill-input" type="number" name="attr_intimidation_rating" /></td>
                             <td><button type='roll' value='!roll intimidation ?{Points to spend|0}' name='roll_intimidation' ></button></td>
                         </tr>
-                        <tr>
-                            <td class="sheet-skill-label">Oral History</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_oral_history_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_oral_history_pool" value="@{oral_history_rating}-@{oral_history_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_oral_history_rating" /></td>
-                            <td><button type='roll' value='!roll oral_history ?{Points to spend|0}' name='roll_oral_history' ></button></td>
+    					<tr>
+                            <td class="sheet-negotiation-label">Negotiation</td>
+                            <td><input class="sheet-negotiation-input" type="number" name="attr_negotiation_spent" value="0" /></td> 
+                            <td><input class="sheet-negotiation-input" type="number" name="attr_negotiation_pool" value="@{negotiation_rating}-@{negotiation_spent}" disabled="true"/> </td>
+                            <td><input class="sheet-negotiation-input" type="number" name="attr_negotiation_rating" /></td>
+                            <td><button type='roll' value='!roll negotiation ?{Points to spend|0}' name='roll_negotiation' ></button></td>
                         </tr>
-                        <tr>
-                            <td class="sheet-skill-label">Reassurance</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_reassurance_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_reassurance_pool" value="@{reassurance_rating}-@{reassurance_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_reassurance_rating" /></td>
+						<tr>
+                            <td class="sheet-reassurance-label">Reassurance</td>
+                            <td><input class="sheet-reassurance-input" type="number" name="attr_reassurance_spent" value="0" /></td> 
+                            <td><input class="sheet-reassurance-input" type="number" name="attr_reassurance_pool" value="@{reassurance_rating}-@{reassurance_spent}" disabled="true"/> </td>
+                            <td><input class="sheet-reassurance-input" type="number" name="attr_reassurance_rating" /></td>
                             <td><button type='roll' value='!roll reassurance ?{Points to spend|0}' name='roll_reassurance' ></button></td>
                         </tr>
                         <tr>
@@ -331,55 +316,18 @@
                             <td><input class="sheet-skill-input" type="number" name="attr_streetwise_rating" /></td>
                             <td><button type='roll' value='!roll streetwise ?{Points to spend|0}' name='roll_streetwise' ></button></td>
                         </tr>
+    					<tr>
+                            <td class="sheet-tradecraft-label">Tradecraft</td>
+                            <td><input class="sheet-tradecraft-input" type="number" name="attr_tradecraft_spent" value="0" /></td> 
+                            <td><input class="sheet-tradecraft-input" type="number" name="attr_tradecraft_pool" value="@{tradecraft_rating}-@{tradecraft_spent}" disabled="true"/> </td>
+                            <td><input class="sheet-tradecraft-input" type="number" name="attr_tradecraft_rating" /></td>
+                            <td><button type='roll' value='!roll tradecraft ?{Points to spend|0}' name='roll_tradecraft' ></button></td>
+                        </tr>                        
                     </table>
-                    <div class="sheet-flx-table">
-                        <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-top sheet-flx-brd-bottom">
-                            <div class="sheet-flx-col-xs-12 sheet-flx-hdr sheet-flx-brd">Languages</div>
-                        </div>
-                        <fieldset class="repeating_languages">
-                            <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-bottom sheet-flx-data">
-                                <div class="sheet-flx-col-xs-12">
-                                    <input type="text" name="attr_name" />
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                    <div class="sheet-flx-table">
-                        <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-top sheet-flx-brd-bottom">
-                            <div class="sheet-flx-col-xs-12 sheet-flx-hdr sheet-flx-brd">Dedicated Pools<span class="sheet-small">(Spent/Current/Max)</span></div>
-                        </div>
-                        <fieldset class="repeating_dedicated">
-                            <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-bottom sheet-flx-data">
-                                <div class="sheet-flx-col-xs sheet-flx-w3 sheet-flx-brd sheet-flx-brd-right">
-                                    <input type="text" name="attr_name" />
-                                </div>
-                                <div class="sheet-flx-col-xs sheet-flx-w4 sheet-flx-brd sheet-flx-brd-right">
-                                    <input class="sheet-skill-input" type="number" name="attr_spent" value="0" />
-                                </div>
-                                <div class="sheet-flx-col-xs sheet-flx-w5 sheet-flx-brd sheet-flx-brd-right">
-                                    <input class="sheet-skill-input" type="number" name="attr_pool" value="@{rating}-@{spent}" disabled="true"/> 
-                                </div>
-                                <div class="sheet-flx-col-xs sheet-flx-w4 sheet-flx-brd sheet-flx-brd-right">
-                                    <input class="sheet-skill-input" type="number" name="attr_rating" />
-                                </div>
-                                <div class="sheet-flx-col-xs sheet-flx-w6">
-                                    <button type='roll' value='!roll @{name} ?{Points to spend|0}' name='roll_pool' ></button>
-                                </div>
-
-                            </div>
-                        </fieldset>
-                    </div>
                 </div>
                 <div class="sheet-flx-col-xs">
                     <table>
                         <thead><tr><th colspan="5">Technical <span class="sheet-small">(Spent/Current/Max)</span></th></tr></thead>
-                        <tr>
-                            <td class="sheet-skill-label">Art</td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_art_spent" value="0" /></td> 
-                            <td><input class="sheet-skill-input" type="number" name="attr_art_pool" value="@{art_rating}-@{art_spent}" disabled="true"/> </td>
-                            <td><input class="sheet-skill-input" type="number" name="attr_art_rating" /></td>
-                            <td><button type='roll' value='!roll art ?{Points to spend|0}' name='roll_art' ></button></td>
-                        </tr>
                         <tr>
                             <td class="sheet-skill-label">Astronomy</td>
                             <td><input class="sheet-skill-input" type="number" name="attr_astronomy_spent" value="0" /></td> 
@@ -394,6 +342,13 @@
                             <td><input class="sheet-skill-input" type="number" name="attr_chemistry_rating" /></td>
                             <td><button type='roll' value='!roll chemistry ?{Points to spend|0}' name='roll_chemistry' ></button></td>
                         </tr>
+    					<tr>
+                            <td class="sheet-cryptography-label">Cryptography</td>
+                            <td><input class="sheet-cryptography-input" type="number" name="attr_cryptography_spent" value="0" /></td> 
+                            <td><input class="sheet-cryptography-input" type="number" name="attr_cryptography_pool" value="@{cryptography_rating}-@{cryptography_spent}" disabled="true"/> </td>
+                            <td><input class="sheet-cryptography-input" type="number" name="attr_cryptography_rating" /></td>
+                            <td><button type='roll' value='!roll cryptography ?{Points to spend|0}' name='roll_cryptography' ></button></td>
+                        </tr>                        
                         <tr>
                             <td class="sheet-skill-label">Craft</td>
                             <td><input class="sheet-skill-input" type="number" name="attr_craft_spent" value="0" /></td> 
@@ -666,29 +621,6 @@
                 </div>
             </div>
         </div>
-
-        <div class='sheet-flx-row'>
-            <div class='sheet-flx-col-xs'>
-                <div class="sheet-section">
-                    <h4 class="sheet-section-head">Sources of Stability</h4>
-                    <ol>
-                        <fieldset class="repeating_sources">
-                            <li><input class="" type="text" name="attr_source" placeholder="a source of stability" /></li>
-                        </fieldset>
-                    </ol>
-                </div>
-            </div>
-            <div class='sheet-flx-col-xs'>
-                <div class="sheet-section">
-                    <h4 class="sheet-section-head">Pillars of Sanity</h4>
-                    <ol>
-                        <fieldset class="repeating_pillars">
-                            <li><input class="" type="text" name="attr_pillar" placeholder="a pillar of sanity" /></li>
-                        </fieldset>
-                    </ol>
-                </div>
-            </div>
-        </div>
         <div class='sheet-section sheet-weapons'>
             <h4 class="sheet-section-head">Weapons and Explosives</h4>
             <div class="sheet-flx-row">
@@ -752,13 +684,13 @@
             </div>
         </div>
         <div class='sheet-section sheet-contacts'>
-            <h4 class="sheet-section-head">Known Contacts</h4>
+            <h4 class="sheet-section-head">Known Network</h4>
             <div class="sheet-flx-row">
                 <div class='sheet-flx-col-xs'>
                     <div class="sheet-flx-table">
                         <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-top sheet-flx-brd-bottom">
                             <div class="sheet-flx-col-xs-4 sheet-flx-hdr sheet-flx-brd sheet-flx-brd-right">Name </div>
-                            <div class="sheet-flx-col-xs-4 sheet-flx-hdr sheet-flx-brd sheet-flx-brd-right">Location</div>
+                            <div class="sheet-flx-col-xs-4 sheet-flx-hdr sheet-flx-brd sheet-flx-brd-right">Pool</div>
                             <div class="sheet-flx-col-xs-4 sheet-flx-hdr sheet-flx-brd sheet-flx-brd-right">Notes</div>
                         </div>
                         <fieldset class="repeating_contacts">
@@ -767,7 +699,34 @@
                                     <input class="" type="text" name="attr_name" />
                                 </div>
                                 <div class="sheet-flx-col-xs-4 sheet-flx-brd sheet-flx-brd-right">
-                                    <input class="" type="text" name="attr_location" />
+                                    <input class="" type="text" name="attr_pool" />
+                                </div>
+                                <div class="sheet-flx-col-xs-4">
+                                    <input class="" type="text" name="attr_notes" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='sheet-section sheet-covers'>
+            <h4 class="sheet-section-head">Known Covers</h4>
+            <div class="sheet-flx-row">
+                <div class='sheet-flx-col-xs'>
+                    <div class="sheet-flx-table">
+                        <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-top sheet-flx-brd-bottom">
+                            <div class="sheet-flx-col-xs-4 sheet-flx-hdr sheet-flx-brd sheet-flx-brd-right">Name </div>
+                            <div class="sheet-flx-col-xs-4 sheet-flx-hdr sheet-flx-brd sheet-flx-brd-right">Pool</div>
+                            <div class="sheet-flx-col-xs-4 sheet-flx-hdr sheet-flx-brd sheet-flx-brd-right">Notes</div>
+                        </div>
+                        <fieldset class="repeating_covers">
+                            <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-bottom sheet-flx-data">
+                                <div class="sheet-flx-col-xs-4 sheet-flx-brd sheet-flx-brd-right">
+                                    <input class="" type="text" name="attr_name" />
+                                </div>
+                                <div class="sheet-flx-col-xs-4 sheet-flx-brd sheet-flx-brd-right">
+                                    <input class="" type="text" name="attr_pool" />
                                 </div>
                                 <div class="sheet-flx-col-xs-4">
                                     <input class="" type="text" name="attr_notes" />
@@ -805,33 +764,5 @@
                 </div>
             </div>
         </div>
-        <div class='sheet-section sheet-tomes'>
-            <h4 class="sheet-section-head">Mthos Tomes, Spells, and Artefacts</h4>
-            <div class="sheet-flx-row">
-                <div class='sheet-flx-col-xs'>
-                    <div class="sheet-flx-table">
-                        <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-top sheet-flx-brd-bottom">
-                            <div class="sheet-flx-col-xs-6 sheet-flx-hdr sheet-flx-brd sheet-flx-brd-right">Item</div>
-                            <div class="sheet-flx-col-xs-6 sheet-flx-hdr">Notes</div>
-                        </div>
-                        <fieldset class="repeating_tomes">
-                            <div class="sheet-flx-row sheet-flx-brd sheet-flx-brd-bottom sheet-flx-data">
-                                <div class="sheet-flx-col-xs-6 sheet-flx-brd sheet-flx-brd-right">
-                                    <input class="" type="text" name="attr_tome-item" />
-                                </div>
-                                <div class="sheet-flx-col-xs-6">
-                                    <input class="" type="text" name="attr_tome-notes" />
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <p class="sheet-aligncenter sheet-small">Character Sheet by <a href="http://caseylink.com/roll20">Casey Link</a> - not affiliated with Pelgrane Press Ltd.</p>
-        <p class="sheet-aligncenter sheet-small">
-        Trail of Cthulhu is a trademark of <a href="http://www.pelgranepress.com" target="_blank">Pelgrane Press Ltd.</a> Trail of Cthulhu is published by arrangement with Chaosium, Inc. 
-        </p>
     </div>
 </div>
-
